@@ -122,7 +122,7 @@ public class EmuViewRenderer extends Renderer {
 
             if (newTexture) {
 
-                gl.glCompressedTexImage2D(GL10.GL_TEXTURE_2D, 0, internalFormat, textureWidth, textureHeight, 0, bufferSize, buffer);
+                gl.glCompresedTexImage2D(GL10.GL_TEXTURE_2D, 0, internalFormat, textureWidth, textureHeight, 0, bufferSize, buffer);
             } else {
                 gl.glCompressedTexSubImage2D(GL10.GL_TEXTURE_2D, 0, 0, 0, textureWidth, textureHeight, 0, bufferSize, buffer);
             }

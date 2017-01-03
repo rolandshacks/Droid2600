@@ -100,6 +100,7 @@ public class SettingsDialog extends DialogFragment implements View.OnClickListen
         setItem(view, R.id.enable_warp, prefs.isWarpEnabled());
         setItem(view, R.id.enable_swap_joysticks, prefs.isJoystickSwapEnabled());
         setItem(view, R.id.enable_audio_reverb, prefs.isReverbEnabled());
+        setItem(view, R.id.enable_stretch_zoom, prefs.isStretchZoomEnabled());
         setItem(view, R.id.enable_max_zoom, prefs.isMaxZoomEnabled());
         setItem(view, R.id.enable_zip_scan, prefs.isZipScanEnabled());
 
@@ -167,6 +168,9 @@ public class SettingsDialog extends DialogFragment implements View.OnClickListen
                 break;
             case R.id.enable_audio_reverb:
                 prefs.setReverbEnabled(checked);
+                break;
+            case R.id.enable_stretch_zoom:
+                prefs.setStretchZoomEnabled(checked);
                 break;
             case R.id.enable_max_zoom:
                 prefs.setMaxZoomEnabled(checked);
