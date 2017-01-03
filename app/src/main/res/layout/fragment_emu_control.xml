@@ -1,0 +1,92 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:fitsSystemWindows="true"
+    android:orientation="horizontal"
+    tools:context="ui.EmuControlFragment">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scrollbarStyle="insideOverlay"
+        android:clipToPadding="true"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/buttonSelectDisk"
+                android:focusable="true"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickSelectDisk"
+                android:text="Select ROM Cartridge..." />
+
+            <Button
+                android:id="@+id/buttonPauseResume"
+                android:focusable="true"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickPauseResume"
+                android:text="Pause/Resume" />
+
+            <Button
+                android:id="@+id/buttonSettings"
+                android:focusable="true"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickShowSettings"
+                android:text="@string/button_settings_text" />
+
+            <Button
+                android:id="@+id/buttonReset"
+                android:focusable="true"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickReset"
+                android:text="@string/button_reset_text" />
+            <!--
+            <Button
+                android:id="@+id/buttonStoreSnapshot"
+                android:focusable="true"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickStoreSnapshot"
+                android:text="Store Snapshot" />
+
+            <Button
+                android:id="@+id/buttonRestoreSnapshot"
+                android:focusable="true"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickRestoreSnapshot"
+                android:text="Restore Last Snapshot" />
+            -->
+
+            <Button
+                android:id="@+id/buttonExit"
+                android:focusable="true"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickExitApp"
+                android:text="Exit App" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
