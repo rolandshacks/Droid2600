@@ -31,6 +31,7 @@ import emu.ImageManager;
 import system.Preferences;
 import system.GameController;
 import system.GameControllerListener;
+import system.SoundEffects;
 import util.LogManager;
 import util.Logger;
 import util.SystemUiHider;
@@ -88,6 +89,7 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
 
     private GameController gameController;
     private ImageManager diskManager;
+    private SoundEffects introSound;
 
     private class StableArrayAdapter extends ArrayAdapter<String> {
 
@@ -180,6 +182,22 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
         }
 
         return false;
+    }
+
+    private synchronized void startIntro() {
+        if (null == introSound) {
+            logger.info("start intro");
+            introSound = new SoundEffects(this);
+            introSound.start();
+        }
+    }
+
+    private synchronized void endIntro() {
+        if (null != introSound) {
+            logger.info("end intro");
+            introSound.stop();
+            introSound = null;
+        }
     }
 
     @Override
@@ -761,6 +779,8 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
 
         Emu emuControl = Emu.instance();
 
+        endIntro();
+
         emuControl.hardReset(image);
         //boolean status = emuControl.attachImage(image); // just insert disk
 
@@ -799,6 +819,7 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
     protected void onStart() {
         super.onStart();
         logger.info("Activity.onStart()");
+        startIntro();
         emuControl.start();
         if (isControlsVisible()) {
             emuControl.pause();
@@ -837,6 +858,7 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
     @Override
     protected void onStop() {
         logger.info("Activity.onStop()");
+        endIntro();
         emuControl.stop();
         super.onStop();
     }
@@ -844,7 +866,7 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
     @Override
     protected void onDestroy() {
         logger.info("Activity.onDestroy()");
-
+        endIntro();
         if (null != emuControl) {
             emuControl.stop();
             emuControl = null;
