@@ -48,6 +48,7 @@ import java.util.List;
 public class FullscreenActivity extends FragmentActivity implements FileDialog.OnDiskSelectHandler, EmuControlFragment.OnFragmentInteractionListener, EmuViewFragment.OnFragmentInteractionListener {
 
     private final static Logger logger = LogManager.getLogger(FullscreenActivity.class.getName());
+    private final static boolean ENABLE_INTRO_SOUND = false;
 
     private static final int AREA_TOP = 0x1;
     private static final int AREA_MIDDLE = 0x2;
@@ -185,6 +186,9 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
     }
 
     private synchronized void startIntro() {
+
+        if (ENABLE_INTRO_SOUND) return;
+
         if (null == introSound) {
             logger.info("start intro");
             introSound = new SoundEffects(this);
@@ -193,6 +197,9 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
     }
 
     private synchronized void endIntro() {
+
+        if (ENABLE_INTRO_SOUND) return;
+
         if (null != introSound) {
             logger.info("end intro");
             introSound.stop();
