@@ -15,12 +15,16 @@ Some facts:
 Download
 --------
 
-Download Droid2600 releases [here](https://github.com/rosc77/Droid2600/releases)
+Download Droid2600 releases at
+
+    https://github.com/rosc77/Droid2600/releases/
 
 Wiki
 ----
 
-Read the Droid2600 wiki [here](https://github.com/rosc77/Droid2600/wiki)
+Read the Droid2600 wiki at
+    
+	https://github.com/rosc77/Droid2600/wiki/
 	
 Copyright
 ---------
