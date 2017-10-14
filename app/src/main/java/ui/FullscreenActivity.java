@@ -91,6 +91,7 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
     private GameController gameController;
     private ImageManager diskManager;
     private SoundEffects introSound;
+    private boolean introActive = false;
 
     private class StableArrayAdapter extends ArrayAdapter<String> {
 
@@ -194,9 +195,13 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
             introSound = new SoundEffects(this);
             introSound.start();
         }
+
+        introActive = true;
     }
 
     private synchronized void endIntro() {
+
+        introActive = false;
 
         if (ENABLE_INTRO_SOUND) return;
 
@@ -205,6 +210,10 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
             introSound.stop();
             introSound = null;
         }
+    }
+
+    private boolean isIntroActive() {
+        return introActive;
     }
 
     @Override
@@ -288,6 +297,11 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
                         return false;
                     }
 
+                    if (isIntroActive()) {
+                        logger.info("Select ROM image");
+                        selectDisk();
+                    }
+
                     mouseDown = false;
                     mouseX = e.getX();
                     mouseY = e.getY();
@@ -358,6 +372,11 @@ public class FullscreenActivity extends FragmentActivity implements FileDialog.O
             public void onButtonDown(int buttonId) {
 
                 logger.info("game controller button down: 0x" + Integer.toHexString(buttonId));
+
+                if (isIntroActive()) {
+                    selectDisk();
+                    return;
+                }
 
                 if (buttonId == GameController.ID_BUTTON_SELECT || buttonId == GameController.ID_BUTTON_MENU) {
 

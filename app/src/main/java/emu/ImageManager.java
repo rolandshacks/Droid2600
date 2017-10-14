@@ -34,15 +34,15 @@ public class ImageManager {
 
 	private static final String [] SCAN_SUBDIRS = new String[] {
 		//"droid64", "c64", "Download", "Documents", "Download/droid64", "Documents/droid64", "Download/c64", "Documents/c64"
-			"droid2600", "vcs", "Download", "Documents", "Download/droid2600", "Documents/droid2600", "Download/vcs", "Documents/vcs"
+			"droid2600", "vcs2600", "vcs2600", "Download", "Documents", "Download/droid2600", "Documents/droid2600", "Download/vcs2600", "Documents/vcs2600"
 	};
 
 	private static final String [] DEFAULT_ARCHIVES = new String[] {
 			// "droid64.zip", "c64.zip"
-			"droid2600.zip", "vcs.zip"
+			"droid2600.zip", "vcs2600.zip", "atari2600.zip"
 	};
 
-	private static final String SNAPSHOT_DIR = "droid64";
+	private static final String SNAPSHOT_DIR = "droid2600";
 	private static final String SNAPSHOT_PREFIX = "vcs"; // "c64";
 	private static final String IMAGE_EXTENSION = "bin"; // "d64";
 

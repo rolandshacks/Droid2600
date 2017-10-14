@@ -9,7 +9,7 @@ android {
         }
     }
     compileSdkVersion 23
-    buildToolsVersion "24.0.1"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId 'org.codewiz.droid2600'
         minSdkVersion 15

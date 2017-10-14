@@ -88,7 +88,7 @@ public class GameController {
     }
 
     public void init() {
-        
+
         stateLeft = false;
         stateRight = false;
         stateUp = false;
@@ -176,62 +176,74 @@ public class GameController {
                 stateCenter = buttonState;
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_A: {
+            case KeyEvent.KEYCODE_BUTTON_A:
+            case KeyEvent.KEYCODE_BUTTON_3: {
                 stateA = buttonState;
                 fireButtonEvent(ID_BUTTON_A, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_B: {
+            case KeyEvent.KEYCODE_BUTTON_B:
+            case KeyEvent.KEYCODE_BUTTON_4: {
                 stateB = buttonState;
                 fireButtonEvent(ID_BUTTON_B, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_X: {
+            case KeyEvent.KEYCODE_BUTTON_X:
+            case KeyEvent.KEYCODE_BUTTON_1:{
                 stateX = buttonState;
                 fireButtonEvent(ID_BUTTON_X, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_Y: {
+            case KeyEvent.KEYCODE_BUTTON_Y:
+            case KeyEvent.KEYCODE_BUTTON_2:{
                 stateY = buttonState;
                 fireButtonEvent(ID_BUTTON_Y, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_SELECT: {
+            case KeyEvent.KEYCODE_BUTTON_SELECT:
+            case KeyEvent.KEYCODE_BUTTON_9:{
                 stateSelect = buttonState;
                 fireButtonEvent(ID_BUTTON_SELECT, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_START: {
+            case KeyEvent.KEYCODE_BUTTON_START:
+            case KeyEvent.KEYCODE_BUTTON_10:{
                 stateStart = buttonState;
                 fireButtonEvent(ID_BUTTON_START, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_L1: {
+            case KeyEvent.KEYCODE_BUTTON_L1:
+            case KeyEvent.KEYCODE_BUTTON_5:{
                 stateL1 = buttonState;
                 fireButtonEvent(ID_BUTTON_L1, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_L2: {
+            case KeyEvent.KEYCODE_BUTTON_L2:
+            case KeyEvent.KEYCODE_BUTTON_6: {
                 stateL2 = buttonState;
                 fireButtonEvent(ID_BUTTON_L2, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_R1: {
+            case KeyEvent.KEYCODE_BUTTON_R1:
+            case KeyEvent.KEYCODE_BUTTON_7:{
                 stateR1 = buttonState;
                 fireButtonEvent(ID_BUTTON_R1, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_R2: {
+            case KeyEvent.KEYCODE_BUTTON_R2:
+            case KeyEvent.KEYCODE_BUTTON_8:{
                 stateR2 = buttonState;
                 fireButtonEvent(ID_BUTTON_R2, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_THUMBL: {
+            case KeyEvent.KEYCODE_BUTTON_THUMBL:
+            case KeyEvent.KEYCODE_BUTTON_11: {
                 stateThumbLeft = buttonState;
                 fireButtonEvent(ID_BUTTON_THUMB_LEFT, buttonState);
                 break;
             }
-            case KeyEvent.KEYCODE_BUTTON_THUMBR: {
+            case KeyEvent.KEYCODE_BUTTON_THUMBR:
+            case KeyEvent.KEYCODE_BUTTON_12: {
                 stateThumbRight = buttonState;
                 fireButtonEvent(ID_BUTTON_THUMB_RIGHT, buttonState);
                 break;
@@ -360,7 +372,7 @@ public class GameController {
     }
 
     private boolean processJoystickInput(MotionEvent event,
-                                      int historyPos) {
+                                         int historyPos) {
 
         //logger.info("process input (" + historyPos + ")");
 
@@ -403,10 +415,10 @@ public class GameController {
 
         stateMask =
                 (stateMask & (0xfffff00 | ID_FIRE)) |
-                (stateLeft ? ID_LEFT : 0) |
-                (stateRight ? ID_RIGHT : 0) |
-                (stateUp ? ID_UP : 0) |
-                (stateDown ? ID_DOWN : 0);
+                        (stateLeft ? ID_LEFT : 0) |
+                        (stateRight ? ID_RIGHT : 0) |
+                        (stateUp ? ID_UP : 0) |
+                        (stateDown ? ID_DOWN : 0);
 
         logger.info("stick: " + stickX + " / " + stickY + " / state: 0x" + Integer.toHexString(stateMask));
 
