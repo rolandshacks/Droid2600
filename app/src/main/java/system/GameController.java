@@ -44,6 +44,7 @@ public class GameController {
     public static int ID_BUTTON_BACK = 0x400000;
     public static int ID_BUTTON_REWIND = 0x800000;
     public static int ID_BUTTON_FAST_FORWARD = 0x1000000;
+    public static int ID_BUTTON_CENTER = 0x2000000;
 
     private List<GameControllerListener> listeners = new ArrayList<GameControllerListener>();
 
@@ -174,6 +175,7 @@ public class GameController {
         switch (buttonCode) {
             case KeyEvent.KEYCODE_DPAD_CENTER: {
                 stateCenter = buttonState;
+                fireButtonEvent(ID_BUTTON_CENTER, buttonState);
                 break;
             }
             case KeyEvent.KEYCODE_BUTTON_A:

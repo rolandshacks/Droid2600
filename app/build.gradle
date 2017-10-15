@@ -2,10 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        droid2600 {
-            keyAlias 'droid2600'
-            keyPassword 'droid2600'
-            storePassword 'droid2600'
+        config {
+            keyAlias 'codewiz'
+            keyPassword 'codewiz1'
+            storeFile file('C:/Users/roland/CloudDocuments/Keystore/codewiz_keystore.jks')
+            storePassword 'codewiz1'
         }
     }
     compileSdkVersion 23
@@ -41,15 +42,12 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar', '*.so'], dir: 'libs')
     provided fileTree(include: ['*.so'], dir: 'libs')
-
     /*
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    */
-
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        */
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
-
     //testCompile 'junit:junit:4.12'
 }
