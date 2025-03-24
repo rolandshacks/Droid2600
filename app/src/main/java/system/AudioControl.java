@@ -207,7 +207,7 @@ public class AudioControl {
 
     private void audioLoop() {
 
-        android.os.Process.setThreadPriority(Process.THREAD_PRIORITY_AUDIO);
+        Process.setThreadPriority(Process.THREAD_PRIORITY_AUDIO);
 
         while (running && !Thread.interrupted()) {
             boolean status = updateAudio();

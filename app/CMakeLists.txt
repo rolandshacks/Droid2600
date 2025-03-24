@@ -1,7 +1,7 @@
 
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.16)
 
-#project (Droid2600)
+project (Droid2600)
 
 add_definitions ( -DBSPF_UNIX -D_GLIBCXX_USE_CXX11_ABI=1 -DHAVE_GETTIMEOFDAY -D__ANDROID__ -DTHUMB_SUPPORT -DSOUND_SUPPORT )
 
@@ -14,7 +14,7 @@ include_directories (
       src/main/cpp/emu/gui
 )
 
-file( GLOB srcfiles
+file( GLOB SRCFILES
       "src/main/cpp/*.cpp"
       "src/main/cpp/emu/*.cpp"
       "src/main/cpp/emu/adapter/*.cpp"
@@ -25,6 +25,6 @@ file( GLOB srcfiles
 
 find_library( LIB_NDK_LOG_LIBRARY log )
 
-add_library( Droid2600 SHARED ${srcfiles} )
+add_library( ${CMAKE_PROJECT_NAME} SHARED ${SRCFILES} )
 
-target_link_Libraries( Droid2600 LINK_PRIVATE ${LIB_NDK_LOG_LIBRARY} )
+target_link_Libraries( ${CMAKE_PROJECT_NAME} LINK_PRIVATE ${LIB_NDK_LOG_LIBRARY} )
